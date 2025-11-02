@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MyOneBricks Realtors</title>
+
+<style>
+:root {
+  --bg-dark: #0d0f14;
+  --accent: #7d62ff;
+  --accent-light: #b29bff;
+  --glass: rgba(255,255,255,0.08);
+  --radius: 14px;
+  --transition: 0.35s ease;
+  --text-light: #d9d9e3;
+  --text-mid: #9ca3af;
+  --gradient: linear-gradient(135deg, #7d62ff, #09c6f9);
+}
+
+body {
+  margin: 0;
+  background: var(--bg-dark);
+  color: var(--text-light);
+  font-family: 'Segoe UI', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 22px 12%;
+  position: fixed;
+  width: 100%;
+  backdrop-filter: blur(12px);
+  background: rgba(0,0,0,0.25);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  z-index: 20;
+}
+
+nav a {
+  color: var(--text-light);
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+
+nav a:hover { color: var(--accent-light); }
+
+/* Hero */
+.hero {
+  height: 95vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  padding: 0 12%;
+}
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 15px;
+}
+.hero p {
+  font-size: 1.2rem;
+  max-width: 620px;
+  margin: 0 auto;
+  color: var(--text-mid);
+}
+.gradient-orb {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: var(--gradient);
+  filter: blur(180px);
+  opacity: 0.25;
+  top: -90px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: float 6s infinite alternate ease-in-out;
+}
+@keyframes float {
+  0% { transform: translateX(-50%) translateY(0); }
+  100% { transform: translateX(-50%) translateY(40px); }
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin: 90px 0 40px;
+  font-weight: 600;
+}
+
+/* Glass Cards */
+.grid, .services-grid, .testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+  gap: 30px;
+  padding: 0 12%;
+}
+.card, .service-box, .testimonial-box {
+  padding: 30px;
+  border-radius: var(--radius);
+  background: var(--glass);
+  border: 1px solid rgba(255,255,255,0.1);
+  backdrop-filter: blur(15px);
+  transition: var(--transition);
+}
+.card:hover, .service-box:hover, .testimonial-box:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent-light);
+}
+
+/* AI Section */
+.ai-section {
+  padding: 120px 12%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+.ai-interactive { display: flex; flex-direction: column; gap: 18px; }
+.ai-box {
+  padding: 20px;
+  border-radius: var(--radius);
+  background: var(--glass);
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  transition: var(--transition);
+  cursor: pointer;
+}
+.ai-box h4 { margin: 0; color: var(--accent-light); }
+.ai-box p { max-height: 0; overflow: hidden; opacity: 0; transition: var(--transition); }
+.ai-box:hover p { max-height: 200px; opacity: 1; }
+
+/* Contact Section */
+.contact {
+  padding: 80px 12%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+.contact input, .contact textarea {
+  width: 100%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 14px;
+  color: var(--text-light);
+  border-radius: var(--radius);
+  margin-bottom: 16px;
+  outline: none;
+}
+.contact button {
+  padding: 14px;
+  background: var(--gradient);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 1rem;
+  color: #fff;
+  transition: var(--transition);
+}
+.contact button:hover { transform: scale(1.03); }
+
+/* Footer */
+footer { text-align: center; padding: 40px; color: var(--text-mid); }
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div><strong>MyOneBricks</strong></div>
+  <div>
+    <a href="#">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#ai">AI & Innovation</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="gradient-orb"></div>
+  <h1>Real Estate Powered by Intelligence</h1>
+  <p>Experience a smarter, faster, more transparent way to invest in real estate.</p>
+</div>
+
+<h2 class="section-title">Featured Properties</h2>
+<div class="grid">
+  <div class="card">Premium Living · Future Ready</div>
+  <div class="card">Smart Security · Modern Design</div>
+  <div class="card">High ROI · Strategic Locations</div>
+</div>
+
+<h2 id="about" class="section-title">About Us</h2>
+<div class="grid">
+  <div class="card" style="grid-column: span 3;">
+    We are transforming real estate using AI, data intelligence, and human expertise to help investors and homeowners make confident decisions with clarity and precision.
+  </div>
+</div>
+
+<h2 id="services" class="section-title">Our Services</h2>
+<div class="services-grid">
+  <div class="service-box">Property Buying Assistance</div>
+  <div class="service-box">Investment Advisory</div>
+  <div class="service-box">Smart Property Recommendation</div>
+  <div class="service-box">Digital Property Tours</div>
+</div>
+
+<section id="ai" class="ai-section">
+  <div>
+    <h2 class="section-title" style="text-align:left;">AI & Innovation</h2>
+    <p style="color:var(--text-mid); line-height:1.6;">Smarter decisions through intelligent data systems, predictive insight, and automation.</p>
+  </div>
+
+  <div class="ai-interactive">
+    <div class="ai-box"><h4>Smart Property Matching</h4><p>AI-based matching based on lifestyle & investment growth.</p></div>
+    <div class="ai-box"><h4>Predictive Market Analytics</h4><p>Forecasts trends & ROI confidence.</p></div>
+    <div class="ai-box"><h4>3D Virtual Tours</h4><p>Experience properties without being there.</p></div>
+    <div class="ai-box"><h4>Automated Documentation</h4><p>Faster close process with transparency.</p></div>
+  </div>
+</section>
+
+<h2 id="contact" class="section-title">Contact Us</h2>
+<div class="contact">
+  <div>
+    <p>Let’s talk about your ideal property or investment plan.</p>
+    <p>Email: support@myonebricks.com<br>Phone: +91-999-888-7777</p>
+  </div>
+  <form>
+    <input placeholder="Your Name" />
+    <input placeholder="Email" />
+    <textarea placeholder="Message" rows="5"></textarea>
+    <button type="button">Send Message</button>
+  </form>
+</div>
+
+<footer>
+  © 2025 MyOneBricks Realtors — All Rights Reserved
+</footer>
+
+</body>
+</html>
